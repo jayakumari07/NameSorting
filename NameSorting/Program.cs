@@ -15,7 +15,7 @@ namespace NameSorting
             // Read each line of the file into a string array. Each element
             // of the array is one line of the file.
             string[] lines = System.IO.File.ReadAllLines(@"C:\Users\venkiJ\Documents\Jaya\NameSorting\unsorted-names-list.txt");
-            using StreamWriter file = new(@"C:\Users\venkiJ\Documents\Jaya\NameSorting\sorted-names-list.txt");
+            //using StreamWriter file = new(@"C:\Users\venkiJ\Documents\Jaya\NameSorting\sorted-names-list.txt");
 
             // Getting the names from File to List
             foreach (string line in lines)
@@ -58,7 +58,7 @@ namespace NameSorting
             }
 
             // Writing in to new file sorted names list
-            System.IO.File.WriteAllLines(@"/Users/manikandan/Documents/Jaya/sorted-names-list.txt", fullNameList);
+            System.IO.File.WriteAllLines(@"C:\Users\venkiJ\Documents\Jaya\NameSorting\sorted-names-list.txt", fullNameList);
 
             // Keep the console window open in debug mode.
             Console.WriteLine("Press any key to exit.");
