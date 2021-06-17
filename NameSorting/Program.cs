@@ -6,7 +6,7 @@ namespace NameSorting
 {
     class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             List<String> unsortedName = new List<String>();
             List<String> unsortedLastName = new List<String>();
@@ -27,8 +27,9 @@ namespace NameSorting
             // Getting the Last Name from Full Name
             for (int i = 0; i < unsortedName.Count; i++)
             {
-                string[] parts = unsortedName[i].Split(' ');
-                string lastName = parts[parts.Length - 1];
+                //string[] parts = unsortedName[i].Split(' ');
+                //string lastName = parts[parts.Length - 1];
+                String lastName = getLastName(unsortedName[i]);
 
                 unsortedLastName.Add(lastName);
             }
@@ -42,8 +43,9 @@ namespace NameSorting
 
                 for (int j = 0; j < unsortedName.Count; j++)
                 {
-                    string[] parts = unsortedName[j].Split(' ');
-                    string lastName = parts[parts.Length - 1];
+                    //string[] parts = unsortedName[j].Split(' ');
+                    //string lastName = parts[parts.Length - 1];
+                    String lastName = getLastName(unsortedName[j]);
                     string FullName;
 
                     if (lastName == unsortedLastName[i])
@@ -57,12 +59,31 @@ namespace NameSorting
 
             }
 
-            // Writing in to new file sorted names list
-            System.IO.File.WriteAllLines(@"C:\Users\venkiJ\Documents\Jaya\NameSorting\sorted-names-list.txt", fullNameList);
+            // Writing in to new file sorted names list    
+            //System.IO.File.WriteAllLines(@"/Users/venkiJ/Documents/Jaya/sorted-names-list.txt", fullNameList);
+            writeFileFunc(fullNameList);
 
             // Keep the console window open in debug mode.
             Console.WriteLine("Press any key to exit.");
             System.Console.ReadKey();
         }
+
+        // Writing in to new file sorted names list
+        public static void writeFileFunc(List<String> finalFullNameList)
+        {
+            // Writing in to new file sorted names list
+            System.IO.File.WriteAllLines(@"C:\Users\venkiJ\Documents\Jaya\NameSorting\sorted-names-list.txt", finalFullNameList);
+        }
+
+        // Getting the Last Name from Full Name
+        public static String getLastName(String lastName)
+        {
+            string lastNameGet = lastName;
+            string[] parts = lastNameGet.Split(' ');
+            lastName = parts[parts.Length - 1];
+
+            return lastName;
+        }
+
     }
 }
